@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:io';
 
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
@@ -95,13 +96,21 @@ class GithubAuthenticator {
     final usernameAndPassword = stringToBase64.encode('$clientId:$clientSecret');
 
     try {
-      _dio.deleteUri(
-        revocationEndpoint,
-        data: {'access_token': accessToken},
-        options: Options(
-          headers: {'Authorization': 'basic $usernameAndPassword'},
-        ),
-      );
+      try {
+        _dio.deleteUri(
+          revocationEndpoint,
+          data: {'access_token': accessToken},
+          options: Options(
+            headers: {'Authorization': 'basic $usernameAndPassword'},
+          ),
+        );
+      } on DioError catch (error) {
+        if (error.type == DioErrorType.unknown && error.type is SocketException) {
+          // Do nothing
+        } else {
+          rethrow;
+        }
+      }
 
       await _credentialsStorage.clear();
       return right(unit);
