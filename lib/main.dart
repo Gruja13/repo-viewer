@@ -17,7 +17,6 @@ class MyApp extends StatelessWidget {
       home: ScreenTypeLayout(
         mobile: OrientationLayout(
           portrait: AuthMobileViewPortrait(),
-          landscape: const AuthMobileViewLandscape(),
         ),
       ),
     );
