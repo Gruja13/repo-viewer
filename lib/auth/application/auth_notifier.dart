@@ -46,4 +46,14 @@ class AuthNotifier extends StateNotifier<AuthState> {
 
     grant.close();
   }
+
+  // Sign out
+  Future<void> signOut() async {
+    final failureOrUnit = await _authenticator.signOut();
+
+    state = failureOrUnit.fold(
+      (failure) => AuthState.failure(failure),
+      (_) => const AuthState.unauthenticated(),
+    );
+  }
 }
