@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:repo_viewer/auth/presentation/views/auth_mobile_view_landscape.dart';
 import 'package:repo_viewer/auth/presentation/views/auth_mobile_view_portrait.dart';
 import 'package:repo_viewer/theme/layout/responsive/orientation_layout.dart';
 import 'package:repo_viewer/theme/layout/responsive/screen_type_layout.dart';
