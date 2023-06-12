@@ -1,23 +1,35 @@
 import 'package:flutter/material.dart';
-import 'package:repo_viewer/auth/presentation/views/auth_mobile_view_portrait.dart';
-import 'package:repo_viewer/theme/layout/responsive/orientation_layout.dart';
-import 'package:repo_viewer/theme/layout/responsive/screen_type_layout.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:repo_viewer/core/presentation/routes/app_router.dart';
 
-void main(List<String> args) {
-  runApp(MyApp());
+void main() {
+  runApp(
+    ProviderScope(
+      child: MyApp(),
+    ),
+  );
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  final AppRouter _router = AppRouter();
+
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return MaterialApp.router(
       debugShowCheckedModeBanner: false,
       title: 'Repo Viewer',
-      home: ScreenTypeLayout(
-        mobile: OrientationLayout(
-          portrait: AuthMobileViewPortrait(),
-        ),
-      ),
+      routerDelegate: _router.delegate(),
+      routeInformationParser: _router.defaultRouteParser(),
+      // home: ScreenTypeLayout(
+      //   mobile: OrientationLayout(
+      //     portrait: SplashViewPortrait(),
+      //   ),
+      // ),
     );
   }
 }
