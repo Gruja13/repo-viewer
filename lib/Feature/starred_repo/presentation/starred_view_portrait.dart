@@ -6,6 +6,13 @@ class StarredViewPortrait extends StatelessWidget {
   const StarredViewPortrait({super.key});
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('StarredViewPortrait'),
+      ),
+      body: const Center(
+        child: Text('StarredViewPortrait is working'),
+      ),
+    );
   }
 }

@@ -374,6 +374,12 @@
       "languageVersion": "2.18"
     },
     {
+      "name": "nested",
+      "rootUri": "file:///Users/djordjegrujovic/.pub-cache/hosted/pub.dev/nested-1.0.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "oauth2",
       "rootUri": "file:///Users/djordjegrujovic/.pub-cache/hosted/pub.dev/oauth2-2.0.2",
       "packageUri": "lib/",
@@ -412,6 +418,12 @@
     {
       "name": "pool",
       "rootUri": "file:///Users/djordjegrujovic/.pub-cache/hosted/pub.dev/pool-1.5.1",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "provider",
+      "rootUri": "file:///Users/djordjegrujovic/.pub-cache/hosted/pub.dev/provider-6.0.5",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
@@ -578,7 +590,7 @@
       "languageVersion": "2.19"
     }
   ],
-  "generated": "2023-06-12T13:22:25.589230Z",
+  "generated": "2023-06-13T13:28:52.935730Z",
   "generator": "pub",
   "generatorVersion": "3.0.0"
 }
